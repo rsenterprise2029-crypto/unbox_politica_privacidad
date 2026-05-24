@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidad — Unbox</title>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Google+Sans+Text:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+  <style>
+    :root {
+      --md-primary:           #1A73E8;
+      --md-primary-container: #E8F0FE;
+      --md-on-primary:        #FFFFFF;
+      --md-surface:           #FFFFFF;
+      --md-surface-variant:   #F1F3F4;
+      --md-background:        #F8F9FA;
+      --md-outline:           #E8EAED;
+      --md-outline-variant:   #DADCE0;
+      --md-text-primary:      #202124;
+      --md-text-secondary:    #5F6368;
+      --md-text-hint:         #80868B;
+      --md-success:           #1E8E3E;
+      --md-success-container: #E6F4EA;
+      --md-warning:           #E37400;
+      --md-warning-container: #FEF0E6;
+      --md-error:             #D93025;
+      --md-error-container:   #FCE8E6;
+      --md-elevation-1: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+      --md-elevation-2: 0 2px 6px rgba(0,0,0,.08), 0 1px 4px rgba(0,0,0,.06);
+      --md-radius-sm:   8px;
+      --md-radius-md:   12px;
+      --md-radius-lg:   16px;
+      --md-radius-xl:   24px;
+      --md-radius-full: 999px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Google Sans Text', 'Google Sans', -apple-system, sans-serif;
+      background: var(--md-background);
+      color: var(--md-text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Top App Bar ── */
+    .app-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--md-surface);
+      border-bottom: 1px solid var(--md-outline);
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: var(--md-elevation-1);
+    }
+
+    .app-bar-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--md-radius-sm);
+      background: var(--md-primary-container);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .app-bar-icon .material-icons-round {
+      font-size: 20px;
+      color: var(--md-primary);
+    }
+
+    .app-bar-title {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--md-text-primary);
+    }
+
+    .app-bar-subtitle {
+      font-size: 12px;
+      color: var(--md-text-hint);
+      margin-left: auto;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--md-surface);
+      border-bottom: 1px solid var(--md-outline);
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+
+    .hero-icon-wrap {
+      width: 80px;
+      height: 80px;
+      border-radius: var(--md-radius-xl);
+      background: var(--md-primary-container);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .hero-icon-wrap .material-icons-round {
+      font-size: 40px;
+      color: var(--md-primary);
+    }
+
+    .hero h1 {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--md-text-primary);
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      font-size: 14px;
+      color: var(--md-text-secondary);
+      max-width: 480px;
+      margin: 0 auto 20px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--md-primary-container);
+      color: var(--md-primary);
+      border-radius: var(--md-radius-full);
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .hero-badge .material-icons-round { font-size: 14px; }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+    }
+
+    /* ── Privacy Highlights ── */
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .highlight-card {
+      background: var(--md-surface);
+      border: 1px solid var(--md-outline);
+      border-radius: var(--md-radius-lg);
+      padding: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      box-shadow: var(--md-elevation-1);
+      transition: box-shadow .2s;
+    }
+
+    .highlight-card:hover { box-shadow: var(--md-elevation-2); }
+
+    .highlight-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--md-radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .highlight-icon .material-icons-round { font-size: 18px; }
+
+    .highlight-card h3 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--md-text-primary);
+      margin-bottom: 2px;
+    }
+
+    .highlight-card p {
+      font-size: 12px;
+      color: var(--md-text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ── Section ── */
+    .section {
+      background: var(--md-surface);
+      border: 1px solid var(--md-outline);
+      border-radius: var(--md-radius-lg);
+      margin-bottom: 16px;
+      overflow: hidden;
+      box-shadow: var(--md-elevation-1);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--md-outline);
+      background: var(--md-surface);
+    }
+
+    .section-header-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--md-radius-sm);
+      background: var(--md-primary-container);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section-header-icon .material-icons-round {
+      font-size: 16px;
+      color: var(--md-primary);
+    }
+
+    .section-header h2 {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--md-text-primary);
+      text-transform: uppercase;
+      letter-spacing: .6px;
+    }
+
+    .section-body {
+      padding: 20px;
+    }
+
+    .section-body p {
+      font-size: 14px;
+      color: var(--md-text-secondary);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .section-body p:last-child { margin-bottom: 0; }
+
+    .section-body h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--md-text-primary);
+      margin: 16px 0 6px;
+    }
+
+    .section-body h3:first-child { margin-top: 0; }
+
+    /* ── List rows ── */
+    .list-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--md-outline);
+    }
+
+    .list-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .list-row:first-child { padding-top: 0; }
+
+    .list-row-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--md-radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .list-row-icon .material-icons-round { font-size: 16px; }
+
+    .list-row-content { flex: 1; }
+
+    .list-row-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--md-text-primary);
+      margin-bottom: 2px;
+    }
+
+    .list-row-sub {
+      font-size: 12px;
+      color: var(--md-text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ── Table ── */
+    .md-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    .md-table th {
+      background: var(--md-surface-variant);
+      color: var(--md-text-hint);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      font-size: 11px;
+      padding: 8px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--md-outline);
+    }
+
+    .md-table td {
+      padding: 10px 12px;
+      color: var(--md-text-secondary);
+      border-bottom: 1px solid var(--md-outline);
+      vertical-align: top;
+    }
+
+    .md-table tr:last-child td { border-bottom: none; }
+    .md-table td:first-child { font-weight: 500; color: var(--md-text-primary); }
+
+    .md-table a {
+      color: var(--md-primary);
+      text-decoration: none;
+      font-size: 12px;
+    }
+
+    .md-table a:hover { text-decoration: underline; }
+
+    /* ── Chip ── */
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      border-radius: var(--md-radius-full);
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .chip .material-icons-round { font-size: 12px; }
+    .chip-success { background: var(--md-success-container); color: var(--md-success); }
+    .chip-primary { background: var(--md-primary-container); color: var(--md-primary); }
+
+    /* ── Rights grid ── */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+    }
+
+    .right-card {
+      background: var(--md-surface-variant);
+      border-radius: var(--md-radius-md);
+      padding: 14px;
+    }
+
+    .right-card .material-icons-round {
+      font-size: 20px;
+      color: var(--md-primary);
+      margin-bottom: 6px;
+    }
+
+    .right-card h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--md-text-primary);
+      margin-bottom: 3px;
+    }
+
+    .right-card p {
+      font-size: 12px;
+      color: var(--md-text-secondary);
+      line-height: 1.5;
+      margin: 0 !important;
+    }
+
+    /* ── Contact card ── */
+    .contact-card {
+      background: var(--md-primary-container);
+      border-radius: var(--md-radius-lg);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .contact-card .material-icons-round {
+      font-size: 32px;
+      color: var(--md-primary);
+      flex-shrink: 0;
+    }
+
+    .contact-card h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--md-primary);
+      margin-bottom: 4px;
+    }
+
+    .contact-card p {
+      font-size: 13px;
+      color: var(--md-primary);
+      opacity: .8;
+      margin: 0 !important;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid var(--md-outline);
+      font-size: 12px;
+      color: var(--md-text-hint);
+    }
+
+    footer span { color: var(--md-primary); font-weight: 500; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .app-bar { padding: 0 16px; }
+      .hero { padding: 32px 16px 28px; }
+      .container { padding: 20px 16px 48px; }
+      .highlights { grid-template-columns: 1fr; }
+      .rights-grid { grid-template-columns: 1fr 1fr; }
+      .contact-card { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- App Bar -->
+  <header class="app-bar">
+    <div class="app-bar-icon">
+      <span class="material-icons-round">inventory_2</span>
+    </div>
+    <span class="app-bar-title">Unbox</span>
+    <span class="app-bar-subtitle">Última actualización: Mayo 2026</span>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-icon-wrap">
+      <span class="material-icons-round">policy</span>
+    </div>
+    <h1>Política de Privacidad</h1>
+    <p>En Unbox, tu privacidad es nuestra prioridad. Aquí encontrarás exactamente qué información recopilamos, cómo la usamos y cómo la protegemos.</p>
+    <div class="hero-badge">
+      <span class="material-icons-round">lock</span>
+      Tus documentos nunca salen de tu dispositivo
+    </div>
+  </section>
+
+  <div class="container">
+
+    <!-- Highlights -->
+    <div class="highlights">
+      <div class="highlight-card">
+        <div class="highlight-icon" style="background:var(--md-success-container)">
+          <span class="material-icons-round" style="color:var(--md-success)">phone_android</span>
+        </div>
+        <div>
+          <h3>100% local</h3>
+          <p>Los archivos se guardan en tu dispositivo. Sin servidores propios.</p>
+        </div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon" style="background:var(--md-primary-container)">
+          <span class="material-icons-round" style="color:var(--md-primary)">psychology</span>
+        </div>
+        <div>
+          <h3>OCR en el dispositivo</h3>
+          <p>El análisis de texto ocurre localmente con ML Kit y Vision Framework.</p>
+        </div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon" style="background:#F3E8FD">
+          <span class="material-icons-round" style="color:#9334E6">shield</span>
+        </div>
+        <div>
+          <h3>Cifrado AES-256</h3>
+          <p>Metadatos cifrados con el estándar de seguridad más alto disponible.</p>
+        </div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon" style="background:var(--md-warning-container)">
+          <span class="material-icons-round" style="color:var(--md-warning)">no_ads</span>
+        </div>
+        <div>
+          <h3>Sin publicidad</h3>
+          <p>No compartimos datos con anunciantes ni redes publicitarias.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1. Quién somos -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-header-icon"><span class="material-icons-round">info</span></div>
+        <h2>1. Quiénes somos</h2>
+      </div>
+      <div class="section-body">
+        <p>Unbox es una aplicación móvil desarrollada para ayudarte a organizar, almacenar y gestionar tus documentos personales importantes: SOAT, garantías, contratos de arrendamiento, documentos de identidad, entre otros.</p>
+        <p>Esta política aplica a todos los usuarios de la app Unbox en Android e iOS y describe nuestras prácticas de privacidad de forma clara y transparente.</p>
+      </div>
+    </div>
+
+    <!-- 2. Información que recopilamos -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-header-icon"><span class="material-icons-round">database</span></div>
+        <h2>2. Información que recopilamos</h2>
+      </div>
+      <div class="section-body">
+        <div class="list-row">
+          <div class="list-row-icon" style="background:#E8F0FE">
+            <span class="material-icons-round" style="color:#1A73E8">account_circle</span>
+          </div>
+          <div class="list-row-content">
+            <div class="list-row-title">Información de cuenta Google</div>
+            <div class="list-row-sub">Nombre, correo electrónico y foto de perfil, proporcionados por Google al iniciar sesión. Se usa únicamente para identificarte dentro de la app.</div>
+          </div>
+          <span class="chip chip-primary"><span class="material-icons-round">cloud</span>Google</span>
+        </div>
+        <div class="list-row">
+          <div class="list-row-icon" style="background:#E6F4EA">
+            <span class="material-icons-round" style="color:#1E8E3E">folder</span>
+          </div>
+          <div class="list-row-content">
+            <div class="list-row-title">Documentos e imágenes</div>
+            <div class="list-row-sub">Las fotos y PDFs que capturas o importas se almacenan localmente en tu dispositivo. No se suben a ningún servidor externo.</div>
+          </div>
+          <span class="chip chip-success"><span class="material-icons-round">phone_android</span>Local</span>
+        </div>
+        <div class="list-row">
+          <div class="list-row-icon" style="background:#F3E8FD">
+            <span class="material-icons-round" style="color:#9334E6">text_fields</span>
+          </div>
+          <div class="list-row-content">
+            <div class="list-row-title">Texto extraído por OCR</div>
+            <div class="list-row-sub">El reconocimiento de texto se realiza completamente en tu dispositivo usando Google ML Kit (Android) o Apple Vision Framework (iOS). Ningún texto sale de tu teléfono.</div>
+          </div>
+          <span class="chip chip-success"><span class="material-icons-round">phone_android</span>Local</span>
+        </div>
+        <div class="list-row">
+          <div class="list-row-icon" style="background:var(--md-surface-variant)">
+            <span class="material-icons-round" style="color:var(--md-text-hint)">bar_chart</span>
+          </div>
+          <div class="list-row-content">
+            <div class="list-row-title">Datos de uso y analíticas</div>
+            <div class="list-row-sub">No recopilamos datos de comportamiento, analíticas, estadísticas de uso ni eventos de navegación dentro de la app.</div>
+          </div>
+          <span class="chip" style="background:var(--md-surface-variant);color:var(--md-text-hint)"><span class="material-icons-round">block</span>No recopilamos</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Almacenamiento -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-header-icon"><span class="material-icons-round">storage</span></div>
+        <h2>3. Dónde se almacena tu información</h2>
+      </div>
+      <div class="section-body">
+        <table class="md-table">
+          <thead>
+            <tr>
+              <th>Dato</th>
+              <th>Dónde se guarda</th>
+              <th>Cifrado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Documentos e imágenes</td>
+              <td>Almacenamiento interno del dispositivo</td>
+              <td><span class="chip chip-success"><span class="material-icons-round">check</span>AES-256</span></td>
+            </tr>
+            <tr>
+              <td>Metadatos y preferencias</td>
+              <td>expo-secure-store (local)</td>
+              <td><span class="chip chip-success"><span class="material-icons-round">check</span>AES-256</span></td>
+            </tr>
+            <tr>
+              <td>Sesión de Google</td>
+              <td>Firebase Authentication</td>
+              <td><span class="chip chip-primary"><span class="material-icons-round">check</span>Firebase</span></td>
+            </tr>
+            <tr>
+              <td>Preferencias de tema y notificaciones</td>
+              <td>AsyncStorage (local)</td>
+              <td><span class="chip chip-success"><span class="material-icons-round">check</span>Sistema OS</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:14px"><strong>Unbox no tiene servidores propios.</strong> No existe una base de datos en la nube donde se almacenen tus documentos o metadatos.</p>
+      </div>
+    </div>
+
+    <!-- 4. Terceros -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-header-icon"><span class="material-icons-round">handshake</span></div>
+        <h2>4. Servicios de terceros</h2>
+      </div>
+      <div class="section-body">
+        <p>Unbox utiliza los siguientes servicios de terceros, todos con propósitos específicos y limitados:</p>
+        <table class="md-table">
+          <thead>
+            <tr>
+              <th>Servicio</th>
+              <th>Proveedor</th>
+              <th>Propósito</th>
+              <th>Política</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Firebase Auth</td>
+              <td>Google LLC</td>
+              <td>Inicio de sesión con Google</td>
+              <td><a href="https://firebase.google.com/support/privacy" target="_blank">Ver →</a></td>
+            </tr>
+            <tr>
+              <td>ML Kit OCR</td>
+              <td>Google LLC</td>
+              <td>Reconocimiento de texto local (Android)</td>
+              <td><a href="https://developers.google.com/ml-kit/terms" target="_blank">Ver →</a></td>
+            </tr>
+            <tr>
+              <td>Vision Framework</td>
+              <td>Apple Inc.</td>
+              <td>Reconocimiento de texto local (iOS)</td>
+              <td><a href="https://www.apple.com/legal/privacy" target="_blank">Ver →</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:14px">Ninguno de estos servicios recibe el contenido de tus documentos. El OCR procesa imágenes localmente en tu dispositivo sin transmitir datos.</p>
+      </div>
+    </div>
+
+    <!-- 5. Compartir información -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-header-icon"><span class="material-icons-round">share</span></div>
+        <h2>5. Compartir información</h2>
+      </div>
+      <div class="section-body">
+        <p><strong>No vendemos, alquilamos ni compartimos tu información personal con terceros</strong> con fines comerciales o publicitarios.</p>
+        <p>Tu información solo puede compartirse en estos casos:</p>
+        <div class="list-row">
+          <div class="list-row-icon" style="background:#E6F4EA">
+            <span class="material-icons-round" style="color:#1E8E3E">touch_app</span>
+          </div>
+          <div class="list-row-content">
+            <div class="list-row-title">Por acción explícita tuya</div>
+            <div class="list-row-sub">Cuando usas las funciones "Exportar documentos" o "Compartir" dentro de la app.</div>
+          </div>
+        </div>
+        <div class="list-row">
+          <div class="list-row-icon" style="background:var(--md-warning-container)">
+            <span class="material-icons-round" style="color:var(--md-warning)">gavel</span>
+          </div>
+          <div class="list-row-content">
+            <div class="list-row-title">Por requerimiento legal</div>
+            <div class="list-row-sub">Si la ley colombiana o internacional nos lo exige mediante orden judicial o administrativa debidamente fundamentada.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Seguridad -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-header-icon"><span class="material-icons-round">security</span></div>
+        <h2>6. Seguridad</h2>
+      </div>
+      <div class="section-body">
+        <div class="list-row">
+          <div class="list-row-icon" style="background:#F3E8FD">
+            <span class="material-icons-round" style="color:#9334E6">enhanced_encryption</span>
+          </div>
+          <div class="list-row-content">
+            <div class="list-row-title">Cifrado AES-256</div>
+            <div class="list-row-sub">Todos los metadatos almacenados localmente están cifrados con el estándar AES-256.</div>
+          </div>
+        </div>
+        <div class="list-row">
+          <div class="list-row-icon" style="background:#E6F4EA">
+            <span class="material-icons-round" style="color:#1E8E3E">fingerprint</span>
+          </div>
+          <div class="list-row-content">
+            <div class="list-row-title">Autenticación biométrica</div>
+            <div class="list-row-sub">Opción de proteger el acceso a la app con huella dactilar o Face ID.</div>
+          </div>
+        </div>
+        <div class="list-row">
+          <div class="list-row-icon" style="background:#E8F0FE">
+            <span class="material-icons-round" style="color:#1A73E8">cloud_off</span>
+          </div>
+          <div class="list-row-content">
+            <div class="list-row-title">Sin transmisión de archivos</div>
+            <div class="list-row-sub">Los archivos originales (imágenes y PDFs) nunca se transmiten a servidores externos.</div>
+          </div>
+        </div>
+        <div class="list-row">
+          <div class="list-row-icon" style="background:var(--md-primary-container)">
+            <span class="material-icons-round" style="color:var(--md-primary)">verified_user</span>
+          </div>
+          <div class="list-row-content">
+            <div class="list-row-title">Sesión segura</div>
+            <div class="list-row-sub">Gestión de sesión mediante Firebase Authentication con tokens seguros de Google.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Tus derechos -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-header-icon"><span class="material-icons-round">how_to_reg</span></div>
+        <h2>7. Tus derechos</h2>
+      </div>
+      <div class="section-body">
+        <p>Como usuario de Unbox y bajo la Ley 1581 de 2012 (Habeas Data, Colombia) tienes los siguientes derechos:</p>
+        <div class="rights-grid" style="margin-top:16px">
+          <div class="right-card">
+            <span class="material-icons-round">visibility</span>
+            <h4>Acceder</h4>
+            <p>Toda tu información es visible directamente en la app en todo momento.</p>
+          </div>
+          <div class="right-card">
+            <span class="material-icons-round">delete_forever</span>
+            <h4>Eliminar</h4>
+            <p>Usa "Eliminar cuenta" en Perfil → Cuenta para borrar todos tus datos.</p>
+          </div>
+          <div class="right-card">
+            <span class="material-icons-round">download</span>
+            <h4>Exportar</h4>
+            <p>Descarga todos tus documentos con "Exportar" en Perfil → Almacenamiento.</p>
+          </div>
+          <div class="right-card">
+            <span class="material-icons-round">link_off</span>
+            <h4>Revocar acceso</h4>
+            <p>Revoca el acceso de Google desde myaccount.google.com en cualquier momento.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. Menores -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-header-icon"><span class="material-icons-round">child_care</span></div>
+        <h2>8. Menores de edad</h2>
+      </div>
+      <div class="section-body">
+        <p>Unbox no está dirigida a menores de 13 años. No recopilamos conscientemente información de menores de edad.</p>
+        <p>Si eres padre, madre o tutor y crees que tu hijo ha proporcionado información personal a través de Unbox, contáctanos a través del correo indicado al final de esta política para proceder con su eliminación inmediata.</p>
+      </div>
+    </div>
+
+    <!-- 9. Cambios -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-header-icon"><span class="material-icons-round">update</span></div>
+        <h2>9. Cambios a esta política</h2>
+      </div>
+      <div class="section-body">
+        <p>Cuando realicemos cambios significativos a esta política de privacidad, te notificaremos mediante una alerta dentro de la app antes de que los cambios entren en vigor.</p>
+        <p>La fecha de "Última actualización" al inicio de este documento siempre refleja la versión vigente. Te recomendamos revisar esta página periódicamente.</p>
+      </div>
+    </div>
+
+    <!-- Contacto -->
+    <div class="contact-card">
+      <span class="material-icons-round">mail</span>
+      <div>
+        <h3>¿Tienes preguntas sobre tu privacidad?</h3>
+        <p>Escríbenos a <strong>privacidad@unbox.app</strong> · Respondemos en menos de 72 horas · Colombia</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2026 <span>Unbox</span> · Todos los derechos reservados · Colombia</p>
+    <p style="margin-top:6px">Desarrollado con ❤️ siguiendo Material Design 3</p>
+  </footer>
+
+</body>
+</html>
